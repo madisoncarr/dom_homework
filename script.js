@@ -12,6 +12,7 @@ function updateCoffeeView(coffeeQty) {
 function clickCoffee(data) {
   data.coffee += 1;
   updateCoffeeView(data.coffee);
+  renderProducers(data);
 }
 
 /**************

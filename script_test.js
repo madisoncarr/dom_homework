@@ -261,7 +261,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
 
   // Inside renderProducers you should probably be calling *three*
   // functions you previously wrote
-  describe.only('The renderProducers function', function() {
+  describe('The renderProducers function', function() {
     // Clear out our fake DOM
     beforeEach('reset the fake DOM', function() {
       resetJSDOM();
@@ -332,7 +332,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
 
   // While it might be passing the tests, nothing in our code yet calls the renderProducers function. How can we test it in the browser?
 
-  // Try running `renderProducers(data)` in the browser console. This might show you some producers, depending on how much coffee you have. You can click a bunch more times and run the function again to test it out-- or you can just set `coffee.data` to a big number before running `renderProducers(data)`. Try that to see if the function works.
+  // Try running `renderProducers(data)` in the browser console. This might show you some producers, depending on how much coffee you have. You can click a bunch more times and run the function again to test it out-- or you can just set `data.coffee` to a big number before running `renderProducers(data)`. Try that to see if the function works.
 
   // How is our code actually going to run this function? That's what the next test, the last one in slice 2, addresses; we'll go back to a funciton you wrote in slice 1 and modify it, slightly.
   describe('The clickCoffee function', function() {
@@ -355,7 +355,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       };
     });
 
-    xit('updates the dom to reflect any newly unlocked producers', function() {
+    it('updates the dom to reflect any newly unlocked producers', function() {
       code.clickCoffee(data);
       const producerContainer = document.getElementById('producer_container');
       expect(producerContainer.childNodes.length).to.be.equal(2);
