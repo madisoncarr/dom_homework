@@ -372,7 +372,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
  ***************************/
 
 describe('Slice 3: Buying Producers & Tick', function() {
-  describe('The getProducerById function', function() {
+  describe.only('The getProducerById function', function() {
     // Set up some fake data
     let data;
     beforeEach('initialize some fake data', function() {
@@ -385,18 +385,18 @@ describe('Slice 3: Buying Producers & Tick', function() {
       };
     });
 
-    xit('returns an object', function() {
+    it('returns an object', function() {
       const result = code.getProducerById(data, 'producer_A');
       expect(result).to.be.an('object');
     });
-    xit('returns the correct producer object', function() {
+    it('returns the correct producer object', function() {
       const testIDs = ['producer_A', 'producer_B', 'producer_C'];
       const results = testIDs.map(testID => code.getProducerById(data, testID));
       expect(results[0].price).to.be.equal(50);
       expect(results[1].price).to.be.equal(200);
       expect(results[2].price).to.be.equal(500);
     });
-    xit('is not hardcoded to pass the tests', function() {
+    it('is not hardcoded to pass the tests', function() {
       // Just like the last test, but we've reversed the order of the producers in the data
       data.producers = data.producers.reverse();
       const testIDs = ['producer_A', 'producer_B', 'producer_C'];

@@ -79,7 +79,12 @@ function renderProducers(data) {
  *   SLICE 3
  **************/
 
-function getProducerById(data, producerId) {}
+function getProducerById(data, producerId) {
+  const producerWanted = data.producers.filter(
+    producer => producer.id === producerId
+  );
+  return producerWanted[0];
+}
 
 function canAffordProducer(data, producerId) {}
 
