@@ -5,13 +5,11 @@
  **************/
 
 function updateCoffeeView(coffeeQty) {
-  console.log('call from inside the updateCoffeeView');
   const coffeeCounter = document.getElementById('coffee_counter');
   coffeeCounter.innerText = coffeeQty;
 }
 
 function clickCoffee(data) {
-  console.log('call from inside the clickCoffee');
   data.coffee += 1;
   updateCoffeeView(data.coffee);
 }
@@ -32,7 +30,12 @@ function getUnlockedProducers(data) {
   return data.producers.filter(producer => producer.unlocked);
 }
 
-function makeDisplayNameFromId(id) {}
+function makeDisplayNameFromId(id) {
+  const newId = id.split('_').map(word => {
+    return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
+  });
+  return newId.join(' ');
+}
 
 // You shouldn't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId
 function makeProducerDiv(producer) {

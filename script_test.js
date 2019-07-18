@@ -131,7 +131,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
     });
   });
 
-  describe.only('The getUnlockedProducers function', function() {
+  describe('The getUnlockedProducers function', function() {
     let data;
     beforeEach('initialize some fake data', function() {
       data = {
@@ -172,13 +172,13 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
     });
   });
 
-  describe('The makeDisplayNameFromId function', function() {
-    xit('returns a string', function() {
+  describe.only('The makeDisplayNameFromId function', function() {
+    it('returns a string', function() {
       const result = code.makeDisplayNameFromId('input_string');
       expect(result).to.be.a('string');
     });
 
-    xit('transforms its input string from snake_case to Title Case', function() {
+    it('transforms its input string from snake_case to Title Case', function() {
       const testStrings = [
         'input_string',
         'mr._coffee',
