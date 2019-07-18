@@ -86,7 +86,14 @@ function getProducerById(data, producerId) {
   return producerWanted[0];
 }
 
-function canAffordProducer(data, producerId) {}
+function canAffordProducer(data, producerId) {
+  const producerObj = getProducerById(data, producerId);
+  if (data.coffee >= producerObj.price) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function updateCPSView(cps) {}
 

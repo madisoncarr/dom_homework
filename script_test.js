@@ -372,7 +372,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
  ***************************/
 
 describe('Slice 3: Buying Producers & Tick', function() {
-  describe.only('The getProducerById function', function() {
+  describe('The getProducerById function', function() {
     // Set up some fake data
     let data;
     beforeEach('initialize some fake data', function() {
@@ -407,7 +407,7 @@ describe('Slice 3: Buying Producers & Tick', function() {
     });
   });
 
-  describe('The canAffordProducer function', function() {
+  describe.only('The canAffordProducer function', function() {
     // Set up some fake data
     let data;
     beforeEach('initialize some fake data', function() {
@@ -421,15 +421,15 @@ describe('Slice 3: Buying Producers & Tick', function() {
       };
     });
 
-    xit('returns a boolean', function() {
+    it('returns a boolean', function() {
       const result = code.canAffordProducer(data, 'producer_A');
       expect(result).to.be.a('boolean');
     });
-    xit('returns true if the player can afford the producer', function() {
+    it('returns true if the player can afford the producer', function() {
       const result = code.canAffordProducer(data, 'producer_A');
       expect(result).to.be.equal(true);
     });
-    xit('returns false if the player cannot afford the producer', function() {
+    it('returns false if the player cannot afford the producer', function() {
       const result = code.canAffordProducer(data, 'producer_B');
       expect(result).to.be.equal(false);
     });
