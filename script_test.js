@@ -131,7 +131,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
     });
   });
 
-  describe('The getUnlockedProducers function', function() {
+  describe.only('The getUnlockedProducers function', function() {
     let data;
     beforeEach('initialize some fake data', function() {
       data = {
@@ -144,7 +144,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       };
     });
 
-    xit('returns an array of producer objects', function() {
+    it('returns an array of producer objects', function() {
       const results = code.getUnlockedProducers(data);
       expect(results).to.be.an('array');
       results.forEach(element => {
@@ -155,7 +155,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       });
     });
 
-    xit('filters out producer objects which are not unlocked', function() {
+    it('filters out producer objects which are not unlocked', function() {
       let results = code.getUnlockedProducers(data);
       expect(results).to.have.lengthOf(1);
 
@@ -165,7 +165,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       expect(results).to.have.lengthOf(2);
     });
 
-    xit('does not mutate the data', function() {
+    it('does not mutate the data', function() {
       const snapshot = JSON.stringify(data);
       code.getUnlockedProducers(data);
       expect(JSON.stringify(data)).to.equal(snapshot);

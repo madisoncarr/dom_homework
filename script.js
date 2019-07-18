@@ -28,7 +28,9 @@ function unlockProducers(producers, coffeeCount) {
   });
 }
 
-function getUnlockedProducers(data) {}
+function getUnlockedProducers(data) {
+  return data.producers.filter(producer => producer.unlocked);
+}
 
 function makeDisplayNameFromId(id) {}
 
