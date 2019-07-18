@@ -4,21 +4,35 @@
  *   SLICE 1
  **************/
 
-function updateCoffeeView(coffeeQty) {}
+function updateCoffeeView(coffeeQty) {
+  console.log('call from inside the updateCoffeeView');
+  const coffeeCounter = document.getElementById('coffee_counter');
+  coffeeCounter.innerText = coffeeQty;
+}
 
-function clickCoffee(data) {}
+function clickCoffee(data) {
+  console.log('call from inside the clickCoffee');
+  data.coffee += 1;
+  updateCoffeeView(data.coffee);
+}
 
 /**************
  *   SLICE 2
  **************/
 
-function unlockProducers(producers, coffeeCount) {}
+function unlockProducers(producers, coffeeCount) {
+  producers.forEach(producer => {
+    if (coffeeCount >= producer.price / 2) {
+      producer.unlocked = true;
+    }
+  });
+}
 
 function getUnlockedProducers(data) {}
 
 function makeDisplayNameFromId(id) {}
 
-// You shoulnd't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId
+// You shouldn't need to edit this function-- its tests should pass once you've written makeDisplayNameFromId
 function makeProducerDiv(producer) {
   const containerDiv = document.createElement('div');
   containerDiv.className = 'producer';
@@ -114,6 +128,6 @@ else if (process) {
     updatePrice,
     attemptToBuyProducer,
     buyButtonClick,
-    tick
+    tick,
   };
 }

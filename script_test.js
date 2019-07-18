@@ -47,7 +47,7 @@ describe('Slice 1: Clicking & Incrementing Coffee', function() {
   });
 
   describe('The updateCoffeeView function', function() {
-    xit('calls document.getElementById() or document.querySelector()', function() {
+    it('calls document.getElementById() or document.querySelector()', function() {
       const spyOnGetElementById = sinon.spy(document, 'getElementById');
       const spyOnQuerySelector = sinon.spy(document, 'querySelector');
       code.updateCoffeeView(); // this is where we actually run your code
@@ -58,7 +58,7 @@ describe('Slice 1: Clicking & Incrementing Coffee', function() {
       spyOnQuerySelector.restore();
     });
 
-    xit('updates the coffee counter to display the current coffee count', function() {
+    it('updates the coffee counter to display the current coffee count', function() {
       const coffeeCounter = document.getElementById('coffee_counter');
       code.updateCoffeeView(4000);
       expect(coffeeCounter.innerText).to.equal(4000);
@@ -68,14 +68,14 @@ describe('Slice 1: Clicking & Incrementing Coffee', function() {
   });
 
   describe('The clickCoffee function', function() {
-    xit('increments the coffee count by one', function() {
+    it('increments the coffee count by one', function() {
       const data = { coffee: 0, producers: [] };
       code.clickCoffee(data);
       expect(data.coffee).to.equal(1);
     });
     // Here, we're not checking to see that you call updateCoffeeView, the
     // function you wrote above. But it would be a good idea to do so!
-    xit('updates the coffee counter element with the incremented value', function() {
+    it('updates the coffee counter element with the incremented value', function() {
       const coffeeCounter = document.getElementById('coffee_counter');
       const data = { coffee: 50, producers: [] };
       code.clickCoffee(data);
@@ -107,12 +107,12 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
         producers: [
           { id: 'producer_A', price: 50, unlocked: false },
           { id: 'producer_B', price: 200, unlocked: false },
-          { id: 'producer_C', price: 500, unlocked: false }
-        ]
+          { id: 'producer_C', price: 500, unlocked: false },
+        ],
       };
     });
 
-    xit("changes `unlocked` to `true` when the player's coffee count is equal to or larger than half the initial price of the producer", function() {
+    it("changes `unlocked` to `true` when the player's coffee count is equal to or larger than half the initial price of the producer", function() {
       data.coffee = 100;
       code.unlockProducers(data.producers, data.coffee);
       expect(data.producers[0].unlocked).to.equal(true);
@@ -120,7 +120,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       expect(data.producers[2].unlocked).to.equal(false);
     });
 
-    xit('does not set `unlocked` to `false` once a producer has been unlocked, even if the coffee count drops again', function() {
+    it('does not set `unlocked` to `false` once a producer has been unlocked, even if the coffee count drops again', function() {
       data.coffee = 100;
       code.unlockProducers(data.producers, data.coffee);
       data.coffee = 0;
@@ -139,8 +139,8 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
         producers: [
           { id: 'producer_A', price: 50, unlocked: true },
           { id: 'producer_B', price: 200, unlocked: false },
-          { id: 'producer_C', price: 500, unlocked: false }
-        ]
+          { id: 'producer_C', price: 500, unlocked: false },
+        ],
       };
     });
 
@@ -183,7 +183,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
         'input_string',
         'mr._coffee',
         'Mr._Coffee',
-        '10_gallon_urn'
+        '10_gallon_urn',
       ];
       const results = testStrings.map(code.makeDisplayNameFromId);
       expect(results[0]).to.equal('Input String');
@@ -199,7 +199,7 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
       price: 57,
       unlocked: true,
       cps: 100,
-      qty: 5
+      qty: 5,
     };
 
     xit('returns a DOM element', function() {
@@ -275,8 +275,8 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
         producers: [
           { id: 'producer_A', price: 50, unlocked: false },
           { id: 'producer_B', price: 200, unlocked: false },
-          { id: 'producer_C', price: 500, unlocked: false }
-        ]
+          { id: 'producer_C', price: 500, unlocked: false },
+        ],
       };
     });
 
@@ -350,8 +350,8 @@ describe('Slice 2: Unlocking & Rendering Producers', function() {
         producers: [
           { id: 'producer_A', price: 50, cps: 5, qty: 0 },
           { id: 'producer_B', price: 200, cps: 10, qty: 1 },
-          { id: 'producer_C', price: 500, cps: 20, qty: 0 }
-        ]
+          { id: 'producer_C', price: 500, cps: 20, qty: 0 },
+        ],
       };
     });
 
@@ -380,8 +380,8 @@ describe('Slice 3: Buying Producers & Tick', function() {
         producers: [
           { id: 'producer_A', price: 50 },
           { id: 'producer_B', price: 200 },
-          { id: 'producer_C', price: 500 }
-        ]
+          { id: 'producer_C', price: 500 },
+        ],
       };
     });
 
@@ -416,8 +416,8 @@ describe('Slice 3: Buying Producers & Tick', function() {
         producers: [
           { id: 'producer_A', price: 50 },
           { id: 'producer_B', price: 200 },
-          { id: 'producer_C', price: 500 }
-        ]
+          { id: 'producer_C', price: 500 },
+        ],
       };
     });
 
@@ -485,8 +485,8 @@ describe('Slice 3: Buying Producers & Tick', function() {
         producers: [
           { id: 'producer_A', price: 50, cps: 5, qty: 0 },
           { id: 'producer_B', price: 200, cps: 10, qty: 0 },
-          { id: 'producer_C', price: 500, cps: 20, qty: 0 }
-        ]
+          { id: 'producer_C', price: 500, cps: 20, qty: 0 },
+        ],
       };
     });
 
@@ -562,8 +562,8 @@ describe('Slice 3: Buying Producers & Tick', function() {
         producers: [
           { id: 'producer_A', price: 50, cps: 5, qty: 0 },
           { id: 'producer_B', price: 200, cps: 10, qty: 0 },
-          { id: 'producer_C', price: 500, cps: 20, qty: 0 }
-        ]
+          { id: 'producer_C', price: 500, cps: 20, qty: 0 },
+        ],
       };
     });
 
@@ -662,8 +662,8 @@ describe('Slice 3: Buying Producers & Tick', function() {
         producers: [
           { id: 'producer_A', price: 50, cps: 5, qty: 0 },
           { id: 'producer_B', price: 200, cps: 10, qty: 1 },
-          { id: 'producer_C', price: 500, cps: 20, qty: 0 }
-        ]
+          { id: 'producer_C', price: 500, cps: 20, qty: 0 },
+        ],
       };
     });
 
