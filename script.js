@@ -64,7 +64,15 @@ function deleteAllChildNodes(parent) {
   }
 }
 
-function renderProducers(data) {}
+function renderProducers(data) {
+  const producerContainer = document.getElementById('producer_container');
+  deleteAllChildNodes(producerContainer);
+  unlockProducers(data.producers, data.coffee);
+  const unlockedProducers = getUnlockedProducers(data);
+  unlockedProducers.forEach(producer => {
+    producerContainer.append(producer);
+  });
+}
 
 /**************
  *   SLICE 3
