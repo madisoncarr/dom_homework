@@ -120,7 +120,24 @@ function attemptToBuyProducer(data, producerId) {
   }
 }
 
-function buyButtonClick(event, data) {}
+function buyButtonClick(event, data) {
+  if (event.target.tagName === 'BUTTON') {
+    let producerId = '';
+    data.producers.forEach(producer => {
+      if (event.target.id.includes(producer.id)) {
+        producerId = producer.id;
+      }
+    });
+    if (canAffordProducer(data, producerId)) {
+      attemptToBuyProducer(data, producerId);
+      renderProducers(data);
+      updateCoffeeView(data.coffee);
+      updateCPSView(data.totalCPS);
+    } else {
+      window.alert('Not enough coffee!');
+    }
+  }
+}
 
 function tick(data) {}
 
