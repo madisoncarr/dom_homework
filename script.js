@@ -95,7 +95,10 @@ function canAffordProducer(data, producerId) {
   }
 }
 
-function updateCPSView(cps) {}
+function updateCPSView(cps) {
+  let cpsIndicator = document.getElementById('cps');
+  cpsIndicator.innerText = cps;
+}
 
 function updatePrice(oldPrice) {}
 

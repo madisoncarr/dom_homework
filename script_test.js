@@ -407,7 +407,7 @@ describe('Slice 3: Buying Producers & Tick', function() {
     });
   });
 
-  describe.only('The canAffordProducer function', function() {
+  describe('The canAffordProducer function', function() {
     // Set up some fake data
     let data;
     beforeEach('initialize some fake data', function() {
@@ -435,13 +435,13 @@ describe('Slice 3: Buying Producers & Tick', function() {
     });
   });
 
-  describe('The updateCPSView function', function() {
+  describe.only('The updateCPSView function', function() {
     // Clear out our fake DOM
     beforeEach('reset the fake DOM', function() {
       resetJSDOM();
     });
 
-    xit('calls document.getElementById() or document.querySelector()', function() {
+    it('calls document.getElementById() or document.querySelector()', function() {
       const spyOnGetElementById = sinon.spy(document, 'getElementById');
       const spyOnQuerySelector = sinon.spy(document, 'querySelector');
       code.updateCPSView(100);
@@ -452,7 +452,7 @@ describe('Slice 3: Buying Producers & Tick', function() {
       spyOnQuerySelector.restore();
     });
 
-    xit('updates the total cps indicator to display the current total cps', function() {
+    it('updates the total cps indicator to display the current total cps', function() {
       const cpsIndicator = document.getElementById('cps');
 
       code.updateCPSView(50);
