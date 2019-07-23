@@ -139,7 +139,11 @@ function buyButtonClick(event, data) {
   }
 }
 
-function tick(data) {}
+function tick(data) {
+  data.coffee += data.totalCPS;
+  updateCoffeeView(data.coffee);
+  renderProducers(data);
+}
 
 /*************************
  *  Start your engines!

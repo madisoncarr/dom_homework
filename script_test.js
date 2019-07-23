@@ -542,7 +542,7 @@ describe('Slice 3: Buying Producers & Tick', function() {
     });
   });
 
-  describe.only('The buyButtonClick function', function() {
+  describe('The buyButtonClick function', function() {
     // JSDOM doesn't have window.alert, so we'll roll our own
     window.alert = alertString => {
       console.log('window.alert() called with:', alertString);
@@ -647,7 +647,7 @@ describe('Slice 3: Buying Producers & Tick', function() {
     });
   });
 
-  describe('The tick function', function() {
+  describe.only('The tick function', function() {
     // Clear out our fake DOM
     beforeEach('reset the fake DOM', function() {
       resetJSDOM();
@@ -667,19 +667,19 @@ describe('Slice 3: Buying Producers & Tick', function() {
       };
     });
 
-    xit('increases coffee count by the total CPS', function() {
+    it('increases coffee count by the total CPS', function() {
       code.tick(data);
       expect(data.coffee).to.be.equal(100);
     });
 
     // hint: use what you've written already! The tick function can be just a few lines
-    xit('updates the dom to reflect this new coffee count', function() {
+    it('updates the dom to reflect this new coffee count', function() {
       code.tick(data);
       const coffeeCounter = document.getElementById('coffee_counter');
       expect(coffeeCounter.innerText).to.equal(100);
     });
 
-    xit('updates the dom to reflect any newly unlocked producers', function() {
+    it('updates the dom to reflect any newly unlocked producers', function() {
       code.tick(data);
       const producerContainer = document.getElementById('producer_container');
       expect(producerContainer.childNodes.length).to.be.equal(2);
