@@ -104,7 +104,21 @@ function updatePrice(oldPrice) {
   return Math.floor(oldPrice * 1.25);
 }
 
-function attemptToBuyProducer(data, producerId) {}
+function attemptToBuyProducer(data, producerId) {
+  if (canAffordProducer(data, producerId)) {
+    data.producers.forEach(producer => {
+      if (producer.id === producerId) {
+        producer.qty += 1;
+        data.coffee -= producer.price;
+        data.totalCPS += producer.cps;
+        producer.price = updatePrice(producer.price);
+      }
+    });
+    return true;
+  } else {
+    return false;
+  }
+}
 
 function buyButtonClick(event, data) {}
 
