@@ -100,7 +100,9 @@ function updateCPSView(cps) {
   cpsIndicator.innerText = cps;
 }
 
-function updatePrice(oldPrice) {}
+function updatePrice(oldPrice) {
+  return Math.floor(oldPrice * 1.25);
+}
 
 function attemptToBuyProducer(data, producerId) {}
 
